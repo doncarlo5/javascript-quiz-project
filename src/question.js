@@ -24,4 +24,4 @@ const question1 = new Question(
   "Easy"
 );
 
-console.log(question1.shuffleChoices());
+question1.shuffleChoices();
