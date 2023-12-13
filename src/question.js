@@ -16,12 +16,3 @@ class Question {
     return this.choices;
   }
 }
-
-const question1 = new Question(
-  "What is the capital of France?",
-  ["Paris", "Berlin", "Madrid", "Rome"],
-  "Paris",
-  "Easy"
-);
-
-question1.shuffleChoices();
