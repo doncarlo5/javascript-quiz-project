@@ -121,11 +121,28 @@ document.addEventListener("DOMContentLoaded", () => {
       quiz.currentQuestionIndex + 1
     } of ${quiz.questions.length}`; //  This value is hardcoded as a placeholder
 
+    question.choices.forEach((choice) => {
+      const li = document.createElement("li");
+      const input = document.createElement("input");
+      const label = document.createElement("label");
+      li.append(input, label);
+      input.type = "radio";
+      input.name = "choice";
+      input.value = choice;
+      label.textContent = choice;
+      choiceContainer.append(li);
+
+      // const choicesForEach = `<input type="radio" name="choice" value=${choice}>
+      //     <label>${choice}</label>`;
+      // choiceContainer.innerHTML += choicesForEach;
+    });
+
     // 4. Create and display new radio input element with a label for each choice.
     // Loop through the current question `choices`.
     // For each choice create a new radio input with a label, and append it to the choice container.
     // Each choice should be displayed as a radio input element with a label:
     /* 
+    
           <input type="radio" name="choice" value="CHOICE TEXT HERE">
           <label>CHOICE TEXT HERE</label>
         <br>
