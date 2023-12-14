@@ -155,7 +155,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function nextButtonHandler() {
     let selectedAnswer; // A variable to store the selected answer value
-
+    let inputChoiceEl = document.querySelectorAll("input");
+    inputChoiceEl.forEach((radio) => {
+      if (radio.checked) {
+        selectedAnswer = true;
+      } else {
+        selectedAnswer = false;
+      }
+    });
     // YOUR CODE HERE:
     //
     // 1. Get all the choice elements. You can use the `document.querySelectorAll()` method.
