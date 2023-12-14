@@ -153,30 +153,36 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hint 4: You can use the `element.innerText` property to set the inner text of an element.
   }
 
+  nextButton.addEventListener("click", nextButtonHandler);
+
   function nextButtonHandler() {
+    console.log("click");
     let selectedAnswer; // A variable to store the selected answer value
     let inputChoiceEl = document.querySelectorAll("input");
-    inputChoiceEl.forEach((radio) => {
-      if (radio.checked) {
-        selectedAnswer = true;
-      } else {
-        selectedAnswer = false;
+    const question = quiz.getQuestion();
+    inputChoiceEl.forEach((input) => {
+      if (input.checked) {
+        selectedAnswer = input.value;
       }
     });
-    // YOUR CODE HERE:
-    //
-    // 1. Get all the choice elements. You can use the `document.querySelectorAll()` method.
-
-    // 2. Loop through all the choice elements and check which one is selected
-    // Hint: Radio input elements have a property `.checked` (e.g., `element.checked`).
-    //  When a radio input gets selected the `.checked` property will be set to true.
-    //  You can use check which choice was selected by checking if the `.checked` property is true.
-
-    // 3. If an answer is selected (`selectedAnswer`), check if it is correct and move to the next question
-    // Check if selected answer is correct by calling the quiz method `checkAnswer()` with the selected answer.
-    // Move to the next question by calling the quiz method `moveToNextQuestion()`.
-    // Show the next question by calling the function `showQuestion()`.
+    quiz.checkAnswer();
+    quiz.moveToNextQuestion();
+    showQuestion();
   }
+
+  // YOUR CODE HERE:
+  //
+  // 1. Get all the choice elements. You can use the `document.querySelectorAll()` method.
+
+  // 2. Loop through all the choice elements and check which one is selected
+  // Hint: Radio input elements have a property `.checked` (e.g., `element.checked`).
+  //  When a radio input gets selected the `.checked` property will be set to true.
+  //  You can use check which choice was selected by checking if the `.checked` property is true.
+
+  // 3. If an answer is selected (`selectedAnswer`), check if it is correct and move to the next question
+  // Check if selected answer is correct by calling the quiz method `checkAnswer()` with the selected answer.
+  // Move to the next question by calling the quiz method `moveToNextQuestion()`.
+  // Show the next question by calling the function `showQuestion()`.
 
   function showResults() {
     // YOUR CODE HERE:
